@@ -1,18 +1,17 @@
 <%- include('../partials/header') %>
 
 
-<% owned.sneaker.forEach(function(s){ %>
+<% owned.sneakers.forEach(function(o){ %>
 <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= s._id %></li>
-    <li class="list-group-item">A second item</li>
+    <li class="list-group-item"><%= o.shoeName %></li>
   </ul>
   <% }) %>
 
   <br><br>
 
-  <% watchlist.sneaker.forEach(function(s){ %>
+  <% watchlist.sneakers.forEach(function(w){ %>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= s._id %></li>
+        <li class="list-group-item"><%= w.brand %></li>
       </ul>
       <% }) %>
 
