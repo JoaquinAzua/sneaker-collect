@@ -1,6 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
+const Collection = require('../models/collection');
 
 passport.use(
     new GoogleStrategy({
@@ -18,6 +19,18 @@ passport.use(
                     googleId: profile.id,
                     email: profile.emails[0].value,
                     avatar: profile.photos[0].value
+                });
+                await Collection.create({
+                    user: user._id,
+                    collectionName: 'watchlist',
+                    userName: user.name,
+                    userAvatar: user.avatar,
+                });
+                await Collection.create({
+                    user: user._id,
+                    collectionName: 'owned',
+                    userName: user.name,
+                    userAvatar: user.avatar,
                 });
                 return cb(null, user);
             } catch(err) {

@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+
+<% owned.sneaker.forEach(function(s){ %>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= s._id %></li>
+    <li class="list-group-item">A second item</li>
+  </ul>
+  <% }) %>
+
+
+<%- include('../partials/footer') %>

@@ -9,7 +9,9 @@ var passport = require('passport');
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/sneakers');
+var sneakersRouter = require('./routes/sneakers');
+const collectionsRouter = require('./routes/collections');
+
 
 // This will load env variables
 require('dotenv').config();
@@ -47,7 +49,8 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/sneakers', sneakersRouter);
+app.use('/', collectionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,15 @@
+var express = require('express');
+var router = express.Router();
+const collectionsCtrl = require('../controllers/collections');
+
+// GET  "/collections" - Index View
+router.get('/collections', collectionsCtrl.index);
+
+// GET "/collections" - Show Route
+router.get('/collections', collectionsCtrl.show);
+
+// GET "/owned/:styleid" - adding to owned collection
+router.get('/owned/:styleID', collectionsCtrl.addToOwned);
+
+
+module.exports = router;
