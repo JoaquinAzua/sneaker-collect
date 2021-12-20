@@ -11,5 +11,7 @@ router.get('/collections', collectionsCtrl.show);
 // GET "/owned/:styleid" - adding to owned collection
 router.get('/owned/:styleID', collectionsCtrl.addToOwned);
 
+// GET "/watchlist/:styleid" - adding to watchlist collection
+router.get('/watchlist/:styleID', collectionsCtrl.addToWatchList);
 
 module.exports = router;

@@ -8,5 +8,13 @@
   </ul>
   <% }) %>
 
+  <br><br>
+
+  <% watchlist.sneaker.forEach(function(s){ %>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= s._id %></li>
+      </ul>
+      <% }) %>
+
 
 <%- include('../partials/footer') %>

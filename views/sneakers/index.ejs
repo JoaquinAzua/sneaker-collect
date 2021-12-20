@@ -22,7 +22,7 @@
         <td><img style="height:60px;" class="rounded float-start" src="<%= p.thumbnail %>" ></td>
         <td><%= p.shoeName %><br><%= p.releaseDate %></td>
         <td><a class="btn btn-outline-dark" href="/owned/<%= p.styleID %>" style="font-size: 15px;">Add to Owned Collection</a></td>
-        <td><a class="btn btn-outline-dark" href="" style="font-size: 15px;">Add to Wishlist</a></td>
+        <td><a class="btn btn-outline-dark" href="/watchlist/<%= p.styleID %>" style="font-size: 15px;">Add to Wishlist</a></td>
       </tr>
       <% }); %>
     </tbody>
