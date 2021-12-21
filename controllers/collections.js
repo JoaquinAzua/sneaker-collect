@@ -66,23 +66,9 @@ function addToWatchList(req, res) {
 function index(req, res) {
   Collection.findOne({ user: req.user._id, collectionName: "owned" }).populate("sneakers").exec(function (err, owned) {
       Collection.findOne({ user: req.user._id, collectionName: "watchlist" }).populate("sneakers").exec(function (err, watchlist) {
+          console.log(owned);
+          console.log(watchlist);
           res.render("collections/index", { owned, watchlist });
         });
     });
 }
-
-// async function index(req, res) {
-//     const owned = await Collection.findOne({user: req.user._id, collectionName: 'owned'}).populate('sneakers').exec((err, res) => res);
-//     const watchlist = await Collection.findOne({user: req.user._id, collectionName: 'watchlist'}).populate('sneakers').exec((err, res) => res);
-//     console.log(owned)
-//     console.log(watchlist)
-//     res.render('collections/index', {owned, watchlist})
-// }
-
-// function show(req, res) {
-//     Collection.find({user: req.user._id}).populate('owned').exec(function(err, owned){
-//         Sneaker.find({styleID:req.params.styleID}, function(err, sneaker){
-//             res.render("collections/index", owned, sneaker)
-//         })
-//     });
-// }

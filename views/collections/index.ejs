@@ -1,19 +1,36 @@
 <%- include('../partials/header') %>
+<style>
+  .collectionsIndex {
+    display: grid;
+    grid-template-columns: 1.4fr .2fr 1.4fr; /* three columns that uses all the available space */
+    text-align: center;
+  }
+  .list-group-item {
+      text-align: center;
+      background-color: lightgrey;
+  } 
+</style>
 
 
-<% owned.sneakers.forEach(function(o){ %>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= o.shoeName %></li>
-  </ul>
-  <% }) %>
+<span class="collectionsIndex">
 
-  <br><br>
-
-  <% watchlist.sneakers.forEach(function(w){ %>
+  <div class="collectionlabels"> Sneakers currently owned:
+    <% owned.sneakers.forEach(function(o){ %>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= w.brand %></li>
-      </ul>
-      <% }) %>
+      <li class="list-group-item"><%= o.shoeName %><%= o.brand %></li>
+    </ul>
+    <% }) %>
+  </div>
 
+  <div></div>
+
+  <div class="collectionlabels"> Sneakers I want to add to my collection:
+    <% watchlist.sneakers.forEach(function(w){ %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= w.shoeName %><%= w.brand %></li>
+    </ul>
+    <% }) %>
+  </div>
+</span>
 
 <%- include('../partials/footer') %>
