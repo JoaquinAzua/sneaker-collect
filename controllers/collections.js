@@ -4,9 +4,9 @@ const SneaksAPI = require("sneaks-api");
 const sneaks = new SneaksAPI();
 
 module.exports = {
-  index,
-  addToOwned,
-  addToWatchList,
+    addToOwned,
+    addToWatchList,
+    index,
 };
 
 function addToOwned(req, res) {
@@ -41,6 +41,7 @@ function addToWatchList(req, res) {
     { user: req.user._id, collectionName: "watchlist" },
     async function (err, watchlist) {
       let sneaker = await Sneaker.findOne({ styleID: req.params.styleID });
+      console.log(sneaker)
       if (sneaker) {
         watchlist.sneakers.push(sneaker._id);
       } else {
@@ -57,6 +58,7 @@ function addToWatchList(req, res) {
         );
       }
       watchlist.save(function (err) {
+        console.log(err)
         res.redirect("/sneakers");
       });
     }
