@@ -28,6 +28,7 @@ function addToOwned(req, res) {
                 styleID: product.styleID,
                 shoeName: product.shoeName,
                 brand: product.brand,
+                thumbnail: product.thumbnail,
               });
               sneaker.save(function(err) {
                 owned.sneakers.push(sneaker._id);
@@ -60,6 +61,7 @@ function addToOwned(req, res) {
                 styleID: product.styleID,
                 shoeName: product.shoeName,
                 brand: product.brand,
+                thumbnail: product.thumbnail,
               });
               sneaker.save(function(err) {
                 watchlist.sneakers.push(sneaker._id);

@@ -20,6 +20,7 @@ var SneakerSchema = new Schema({
     shoeName: String,
     brand: String,
     styleID: String, 
+    thumbnail: String,
     reviews: [reviewSchema]
 });
 

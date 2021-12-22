@@ -2,32 +2,34 @@
 <style>
   .collectionsIndex {
     display: grid;
-    grid-template-columns: 1.4fr .2fr 1.4fr; /* three columns that uses all the available space */
+    grid-template-columns: 2fr .1fr 2fr; /* three columns that uses all the available space */
     text-align: center;
+    padding: 15px;
   }
   .list-group-item {
-      text-align: center;
-      background-color: lightgrey;
+    background-color: lightgrey;
+    padding: 5px;
+    text-align: left;
   } 
 </style>
 
 
 <span class="collectionsIndex">
 
-  <div class="collectionlabels"> Sneakers currently owned:
+  <div class="collectionlabels"> <h2>Sneakers currently owned:</h2>
     <% owned.sneakers.forEach(function(o){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= o.shoeName %><%= o.brand %> <a class="btn btn-outline-primary" href="/sneakers/<%= o.styleID %>">Details</a></li>
+      <li class="list-group-item"><img style="height: 10px" class="rounded float-start" src="<%= o.thumbnail %>"/><%= o.shoeName %> <a class="btn btn-outline-primary" href="/sneakers/<%= o.styleID %>">Details</a></li>
     </ul>
     <% }) %>
   </div>
 
   <div></div>
 
-  <div class="collectionlabels"> Sneakers I want to add to my collection:
+  <div class="collectionlabels"> <h2> Sneakers Watchlist:</h2>
     <% watchlist.sneakers.forEach(function(w){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= w.shoeName %><%= w.brand %> <a class="btn btn-outline-primary" href="/sneakers/<%= w.styleID %>">Details</a></li>
+      <li class="list-group-item"><%= w.shoeName %> <a class="btn btn-outline-primary" href="/sneakers/<%= w.styleID %>">Details</a></li>
     </ul>
     <% }) %>
   </div>
