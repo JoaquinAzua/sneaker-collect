@@ -17,7 +17,7 @@
   <div class="collectionlabels"> Sneakers currently owned:
     <% owned.sneakers.forEach(function(o){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= o.shoeName %><%= o.brand %></li>
+      <li class="list-group-item"><%= o.shoeName %><%= o.brand %> <a class="btn btn-outline-primary" href="/sneakers/<%= o.styleID %>">Details</a></li>
     </ul>
     <% }) %>
   </div>
@@ -27,7 +27,7 @@
   <div class="collectionlabels"> Sneakers I want to add to my collection:
     <% watchlist.sneakers.forEach(function(w){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= w.shoeName %><%= w.brand %></li>
+      <li class="list-group-item"><%= w.shoeName %><%= w.brand %> <a class="btn btn-outline-primary" href="/sneakers/<%= w.styleID %>">Details</a></li>
     </ul>
     <% }) %>
   </div>
