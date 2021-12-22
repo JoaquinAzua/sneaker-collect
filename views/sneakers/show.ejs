@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
-
+<style>
+    
+</style>
 <div class="grid">
     <div class="g-col-4">
         <% for (var i = 0; i < products.imageLinks.length; i++) { %>
@@ -15,7 +17,7 @@
         <p style="background-color: lightgrey; margin: 15px; padding: 15px; font-size: 20px;"><%= products.description %></p>
         <br>
     </div>
-    <div class="g-col-4">
+    <div class="table-responsive">
         <table class="table table-bordered border-primary">
             <tr><br>
                 <th>Size:</th>
@@ -40,27 +42,11 @@
             </thead>
             <tbody>
                 <tr>
-                  <td>StockX</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
+                    <td><a href="<%= products.resellLinks['stockX'] %>">StockX</a></td>
+                    
                 </tr>
                 <tr>
-                    <td>GOAT</td>
+                    <td><a href="<%= products.resellLinks['goat'] %>">GOAT</a></td>
                     <td>100</td>
                     <td>100</td>
                     <td>100</td>
@@ -80,7 +66,7 @@
                     <td>100</td>
                   </tr>
                   <tr>
-                    <td>Flight Club</td>
+                    <td><a href="<%= products.resellLinks['flightClub'] %>">Flight Club</a></td>
                     <td>100</td>
                     <td>100</td>
                     <td>100</td>
@@ -102,7 +88,12 @@
               </tbody>
         </table>
     </div>
-  </div>
+    <div class="g-col-4">
+        RATING: 
+        <br>
+        REVIEW AREA 
+    </div>
+</div>
 
 
 <%- include('../partials/footer') %>

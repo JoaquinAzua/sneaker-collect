@@ -6,32 +6,32 @@
   }
 </style>
 
-<div class="most-popular">
+<div class="adidas">
   <table style="font-size: 25px" class="table table-borderless">
     <thead>
       <tr>
         <br />
-        <h1 style="text-align: center">Most Popular</h1>
+        <h1 style="text-align: center">ADIDAS Sneakers</h1>
         <th></th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% products.forEach(function(p) { %>
+      <% adidas.forEach(function(a) { %>
       <tr>
         <td>
           <img
             style="height: 60px"
             class="rounded float-start"
-            src="<%= p.thumbnail %>"
+            src="<%= a.thumbnail %>"
           />
         </td>
-        <td><%= p.shoeName %><br /><%= p.releaseDate %></td>
+        <td><%= a.shoeName %><br /><%= a.releaseDate %></td>
         <td>
           <a
             class="btn btn-outline-dark"
-            href="/owned/<%= p.styleID %>"
+            href="/owned/<%= a.styleID %>"
             style="font-size: 15px"
             >Add to Owned Collection</a
           >
@@ -39,7 +39,7 @@
         <td>
           <a
             class="btn btn-outline-dark"
-            href="/watchlist/<%= p.styleID %>"
+            href="/watchlist/<%= a.styleID %>"
             style="font-size: 15px"
             >Add to Wishlist</a
           >
