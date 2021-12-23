@@ -5,7 +5,9 @@ with links to purchase Sneaker from respective resell sites.
 
 ----------
 ## **Site Screenshots** 
-
+![index view to collection to details](https://i.imgur.com/HOTYrFw.png)
+![img](https://i.imgur.com/dtct9Ld.png)
+![img](https://i.imgur.com/3c769HC.png)
 
 ----------
 ## *Technologies Used:*
