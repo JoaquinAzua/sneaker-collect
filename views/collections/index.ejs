@@ -11,27 +11,40 @@
     padding: 5px;
     text-align: left;
   } 
+  li{
+    display: flex;
+  }
 </style>
 
 
 <span class="collectionsIndex">
 
   <div class="collectionlabels"> <h2>Sneakers currently owned:</h2>
-    <% owned.sneakers.forEach(function(o){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><img style="height: 10px" class="rounded float-start" src="<%= o.thumbnail %>"/><%= o.shoeName %> <a class="btn btn-outline-primary" href="/sneakers/<%= o.styleID %>">Details</a></li>
+    <% owned.sneakers.forEach(function(o){ %>
+      <li class="list-group-item" style="display: flex;"><img style="height: 40px" class="rounded float-start" src="<%= o.thumbnail %>"/><p style="margin:auto"><%= o.shoeName %></p>
+        <a class="btn btn-outline-primary" style="margin: 5px;" href="/sneakers/<%= o.styleID %>">Details</a>
+        <form action="/collections/<%=o._id%>/owned?_method=DELETE" method="POST">
+          <button style="margin: 5px;" class="btn btn-outline-danger">X</button>
+        </form>
+      </li>
+      <% }) %>
     </ul>
-    <% }) %>
   </div>
 
   <div></div>
 
   <div class="collectionlabels"> <h2> Sneakers Watchlist:</h2>
-    <% watchlist.sneakers.forEach(function(w){ %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= w.shoeName %> <a class="btn btn-outline-primary" href="/sneakers/<%= w.styleID %>">Details</a></li>
+    <% watchlist.sneakers.forEach(function(w){ %>
+      <li style="display: flex;" class="list-group-item"><img style="height: 40px" class="rounded float-start" src="<%= w.thumbnail %>"/><p style="margin:auto"><%= w.shoeName %></p>
+        <a class="btn btn-outline-primary" style="margin: 5px;" href="/sneakers/<%= w.styleID %>">Details</a>
+        <form action="/collections/<%=w._id%>/watchlist?_method=DELETE" method="POST">
+          <button style="margin: 5px;" class="btn btn-outline-danger">X</button>
+        </form>
+      </li>
+      <% }) %>
     </ul>
-    <% }) %>
   </div>
 </span>
 

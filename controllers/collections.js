@@ -8,6 +8,8 @@ module.exports = {
     addToWatchList,
     index,
     show,
+    deleteFromWatchlist,
+    deleteFromOwned
 };
 
 function addToOwned(req, res) {
@@ -43,14 +45,35 @@ function addToOwned(req, res) {
     );
   }
 
+  function deleteFromOwned(req, res) {
+    Collection.findOne({ user: req.user._id, collectionName: "owned" }, function(err, owned){
+      owned.sneakers.remove(req.params.id);
+      // owned.sneakers = owned.sneakers.filter(id => !id.equals(req.params.id));
+      owned.save(function(err){
+        res.redirect("/collections")
+      })
+    })
+  }
+
+
+  function deleteFromWatchlist(req, res) {
+    Collection.findOne({ user: req.user._id, collectionName: "watchlist" }, function(err, watchlist){
+      watchlist.sneakers.remove(req.params.id);
+      // owned.sneakers = owned.sneakers.filter(id => !id.equals(req.params.id));
+      watchlist.save(function(err){
+        res.redirect("/collections")
+      })
+    })
+  }
+
   function addToWatchList(req, res) {
     Collection.findOne(
       { user: req.user._id, collectionName: "watchlist" },
       async function (err, watchlist) {
         let sneaker = await Sneaker.findOne({ styleID: req.params.styleID });
         if (sneaker) {
-          owned.sneakers.push(sneaker._id);
-          owned.save(function (err) {
+          watchlist.sneakers.push(sneaker._id);
+          watchlist.save(function (err) {
             res.redirect("/collections");
           });
         } else {
@@ -76,32 +99,6 @@ function addToOwned(req, res) {
     );
   }
 
-// function addToWatchList(req, res) {
-//   Collection.findOne({ user: req.user._id, collectionName: "watchlist" },async function (err, watchlist) {
-//       let sneaker = await Sneaker.findOne({ styleID: req.params.styleID });
-//       console.log(sneaker)
-//       if (sneaker) {
-//         watchlist.sneakers.push(sneaker._id);
-//       } else {
-//         sneaks.getProductPrices(
-//           req.params.styleID,
-//           async function (err, product) {
-//             sneaker = await Sneaker.create({
-//               styleID: product.styleID,
-//               shoeName: product.shoeName,
-//               brand: product.brand,
-//             });
-//             watchlist.sneakers.push(sneaker._id);
-//           }
-//         );
-//       }
-//       watchlist.save(function (err) {
-//         console.log(err)
-//         res.redirect("/sneakers");
-//       });
-//     }
-//   );
-// }
 
 function index(req, res) {
   Collection.findOne({ user: req.user._id, collectionName: "owned" }).populate("sneakers").exec(function (err, owned) {
@@ -115,8 +112,16 @@ function index(req, res) {
 
 
 function show(req, res){
-    sneaks.getProductPrices(req.params.styleID, function(err, products){
-        console.log({products})
-        res.render('sneakers/show', {products})
+  Sneaker.findOne({styleID: req.params.styleID}, function(err, sneakerdb){
+    sneaks.getProductPrices(req.params.styleID, function(err, sneaker){
+        let keys = Object.keys(sneaker.resellPrices.goat)
+        keys = keys.map(k => Number(k));
+        keys.sort(function (a, b){
+          return a-b;
+        });
+        console.log(keys)
+        //console.log(sneaker)
+        res.render('sneakers/show', {sneaker, sneakerdb, keys})
     })
+  })
 }

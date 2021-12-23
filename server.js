@@ -11,6 +11,7 @@ var passport = require('passport');
 var indexRouter = require('./routes/index');
 var sneakersRouter = require('./routes/sneakers');
 const collectionsRouter = require('./routes/collections');
+const reviewsRouter = require('./routes/reviews')
 
 
 // This will load env variables
@@ -51,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/sneakers', sneakersRouter);
 app.use('/', collectionsRouter);
+app.use('/', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

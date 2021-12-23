@@ -6,32 +6,32 @@
   }
 </style>
 
-<div class="nike">
+<div class="jordans">
   <table style="font-size: 25px" class="table table-borderless">
     <thead>
       <tr>
         <br />
-        <h1 style="text-align: center">NIKE Sneakers</h1>
+        <h1 style="text-align: center"><%= title %></h1>
         <th></th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% nike.forEach(function(n) { %>
+      <% products.forEach(function(p) { %>
       <tr>
         <td>
           <img
             style="height: 60px"
             class="rounded float-start"
-            src="<%= n.thumbnail %>"
+            src="<%= p.thumbnail %>"
           />
         </td>
-        <td><%= n.shoeName %><br /><%= n.releaseDate %></td>
+        <td><%= p.shoeName %><br /><%= p.releaseDate %></td>
         <td>
           <a
             class="btn btn-outline-dark"
-            href="/owned/<%= n.styleID %>"
+            href="/owned/<%= p.styleID %>"
             style="font-size: 15px"
             >Add to Owned Collection</a
           >
@@ -39,7 +39,7 @@
         <td>
           <a
             class="btn btn-outline-dark"
-            href="/watchlist/<%= n.styleID %>"
+            href="/watchlist/<%= p.styleID %>"
             style="font-size: 15px"
             >Add to Wishlist</a
           >
