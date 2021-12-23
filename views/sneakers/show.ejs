@@ -59,7 +59,7 @@
                         <td style="background-color: lightgrey;"><a class="btn btn-outline-primary" href="<%= sneaker.resellLinks['stockX'] %>">StockX</a></td>
                         <% keys.forEach(function(k){ %>
                             <td>
-                                $<%= sneaker.resellPrices.stockX[k] %>
+                                $<%= sneaker.resellPrices.stockX && sneaker.resellPrices.stockX[k] %>
                             </td>
                         <% }) %>
                     </tr>
@@ -67,7 +67,7 @@
                         <td style="background-color: lightgrey;" ><a class="btn btn-outline-primary" href="<%= sneaker.resellLinks['goat'] %>">GOAT</a></td>
                         <% keys.forEach(function(k){ %>
                             <td>
-                                $<%= sneaker.resellPrices.goat[k] %>
+                                $<%= sneaker.resellPrices.goat && sneaker.resellPrices.goat[k] %>
                             </td>
                         <% }) %>
                       </tr>
@@ -75,7 +75,7 @@
                         <td style="background-color: lightgrey;" ><a class="btn btn-outline-primary" href="<%= sneaker.resellLinks['flightClub'] %>">Flight Club</a></td>
                         <% keys.forEach(function(k){ %>
                             <td>
-                                $<%= sneaker.resellPrices.flightClub[k] %>
+                                $<%= sneaker.resellPrices.flightClub && sneaker.resellPrices.flightClub[k] %>
                             </td>
                         <% }) %>
                       </tr>
